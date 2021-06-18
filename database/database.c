@@ -37,24 +37,6 @@ char databases[100][256];
 struct user_model user_list[100];
 char cwd[str_size];
 
-int checkIdentity(char id[], char password[])
-{
-    char akun[1000], temp[100];
-    FILE *fp = fopen("users", "r");
-    // Loop per line
-    while (fscanf(fp, "%s", temp) == 1)
-    {
-        // Cek apakah id:password sudah ada.
-        if (strstr(temp, akun) != 0)
-        {
-            fclose(fp);
-            return 1;
-        }
-    }
-    fclose(fp);
-    return 0;
-}
-
 static void signal_listener(int signo)
 {
     longjmp(context, 1);
